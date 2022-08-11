@@ -1,73 +1,97 @@
-import React from 'react'
-import {
-  ImageList,ImageListItem,Box,Card,CardContent,CardActions,CardMedia, Typography,Button,Stack} from '@mui/material'
-import SendIcon from '@mui/icons-material/Send'
-import FormatBoldIcon from '@mui/icons-material/FormatBold'
-import FormatItalicIcon from '@mui/icons-material/FormatItalic'
-import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined'
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import ButtonBase from '@mui/material/ButtonBase';
+import { TextField,Button,Stack,CardContent  } from '@mui/material';
 
+const Img = styled('img')({
+  margin: 'auto',
+  display: 'block',
+  maxWidth: '100%',
+  maxHeight: '100%',
+});
 
 const App = () => {
-  const images=[
-    {
-      src: 'https://source.unsplash.com/random',
-      title: 'Image 1',
-      description: 'Image 1 description'
-    },
-    {
-      src: 'https://source.unsplash.com/random',
-      title: 'Image 2',
-      description: 'Image 2 description'
-    },
-    {
-      src: 'https://source.unsplash.com/random',
-      title: 'Image 3',
-      description: 'Image 3 description'
-    }
-    ,{
-      src: 'https://source.unsplash.com/random',
-      title: 'Image 4',
-      description: 'Image 4 description'
-    }
-    ,{
-      src: 'https://source.unsplash.com/random',
-      title: 'Image 5',
-      description: 'Image 5 description'
-    }
-  ]
+  const [search, setSearch] = React.useState('');
+  const [movie, setMovie] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
 
-  return (<>
-   <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-      <Card>
-        <CardContent>
-        <CardMedia image="https://source.unsplash.com/random" height='140' component='img' />
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            Hello World
-          </Typography>
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  }
+  const getSearch = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=9f4b46a`)
+    const data = await response.json();
+    setMovie(data.Search);
+    setLoading(false);
+    setSearch('');
+  }
+React.useEffect(() => {
+  getSearch();
+} , [])
 
-        </CardContent>
-        <CardActions>
-          <Button variant="contained" color="primary" startIcon={<SendIcon />}>
-            Send
-          </Button>
-        </CardActions>
-        </CardContent>
-      </Card>
-      
-    </Box>
-    <Stack spacing={2}>
-    <ImageList sx={{width: 500}} cols={3} rowHeight={164} >
-      {images.map(image => (
-        <ImageListItem key={image.src}>
-          <img src={image.src} alt={image.title} />
-          </ImageListItem>
-      ))}
-    </ImageList>
-    </Stack>
 
-  </>
  
+
+console.log(movie);
+
+
+
+  return (
+    <div>
+  <TextField id="standard-basic" label="Search" value={search} onChange={handleChange} />
+  <Button variant="contained" color="primary" onClick={getSearch}>
+    Search
+  </Button>
+  <Stack spacing={2}>
+  
+  {
+    movie.map((item) => {
+     return(
+    
+      <Grid container spacing={2}>
+        <Grid item>
+          <ButtonBase sx={{ width: 150, height: 150 }}>
+            <Img alt="complex" src={item.Poster} />
+          </ButtonBase>
+        </Grid>
+        <Grid item xs={12} sm container>
+          <Grid item xs container direction="column" spacing={2}>
+            <Grid item xs>
+              <Typography gutterBottom variant="subtitle1" component="div">
+               {item.Title}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                {item.Year}
+              </Typography>
+              
+            </Grid>
+            <Grid item>
+              <Typography sx={{ cursor: 'pointer' }} variant="body2">
+                imdb: {item.imdbID}
+              </Typography>
+            </Grid>
+          </Grid>
+          
+        </Grid>
+      </Grid>
+   
+
+     
+      
+     )
+    } )
+
+
+  }
+  
+  </Stack>
+
+    </div>
   )
 }
 
