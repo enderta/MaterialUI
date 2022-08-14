@@ -1,10 +1,10 @@
 import React from 'react'
-import Movie from './Components/movie/Movie'
+import Album from './Components/album/Album'
 
 const App = () => {
   return (
     <div>
-      <Movie />
+      <Album />
     </div>
   )
 }
