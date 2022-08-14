@@ -28,7 +28,7 @@ React.useEffect(() => {
 
     
   return (
-    <div style={{backgroundColor:'rgb(2,0,36)',background:"linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(42,50,8,1) 21%, rgba(0,212,255,1) 100%)"}}>
+    <div style={{backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}}>
     
         <CssBaseline />
         <AppBar position='relative'>
@@ -59,39 +59,41 @@ React.useEffect(() => {
                 <br/>
             </Container >
             <div>
-                <Container maxWithd='md' >
-                    <Grid spacing={4}   container>
-                       {
-                            movie.map((item) => {
-                                return(
-                                    <Grid item xs={12} sm container>
-                                    <Card sm >
-                                                    <CardMedia component="img"   height="194" alt="Contemplative Reptile"  image={item.Poster} title="Contemplative Reptile" />
-                                                    <CardContent>
-                                                        <Typography gutterBottom variant="h5" component="h2">
-                                                            {item.Title}
-                                                        </Typography>
-                                                        <Typography variant="body2" color="textSecondary" component="p">
-                                                            {item.Year}
-                                                        </Typography>
-                                                    </CardContent>
-                                                    <CardActions>
-                                                        <Button size="small" color="primary">
-                                                            Share
-                                                        </Button>
-                                                        <Button size="small" color="primary">
-                                                            Learn More
-                                                        </Button>
-                                                    </CardActions>
-                                                </Card>
-                                    </Grid>
-                                )
-                            } )
-                          }
-                    
-                       
-                    </Grid>
-                </Container>
+            <Container sx={{ py: 8 }} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {movie.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card style={{backgroundColor:"rgb(131,58,180)"}}
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                >
+                  <CardMedia
+                    component="img"
+                    sx={{
+                      // 16:9
+                      pt: '56.25%',
+                    }}
+                    image={card.Poster}
+                    alt="random"
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe the
+                      content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small">View</Button>
+                    <Button size="small">Edit</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
             </div>
         </main>
     </div>
