@@ -28,10 +28,10 @@ React.useEffect(() => {
 
     
   return (
-    <div style={{backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}}>
+    <div style={{margin:"0",backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}}>
     
         <CssBaseline />
-        <AppBar position='relative'>
+        <AppBar position='relative' style={{backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}} >
         <Toolbar>
             <MovieIcon/>
             <Typography variant='h6'>
@@ -40,7 +40,7 @@ React.useEffect(() => {
         </Toolbar>
 
         </AppBar>
-        <main >
+        <main  style={{backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}} >
             <Container maxWithd='sm' >
                 <Typography variant='h4' align='center' gutterBottom color='textPrimary'>
                     Movies You May Like
@@ -64,14 +64,14 @@ React.useEffect(() => {
           <Grid container spacing={4}>
             {movie.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card style={{backgroundColor:"rgb(131,58,180)"}}
+                <Card style={{backgroundColor:"orange"}}
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
                     sx={{
                       // 16:9
-                      pt: '56.25%',
+                     
                     }}
                     image={card.Poster}
                     alt="random"
