@@ -2,6 +2,7 @@ import React from 'react'
 import {TextField,Button, Typography,AppBar,Card,CardActions,CardContent,CardMedia,CssBaseline,Grid,Container,Toolbar } from '@mui/material/'
 import MovieIcon from '@mui/icons-material/Movie';
 import { makeStyles } from '@mui/styles'
+import Search from './Search.Jsx';
 
 
 
@@ -64,7 +65,7 @@ React.useEffect(() => {
           <Grid container spacing={4}>
             {movie.map((card) => (
               <Grid item key={card} xs={4} sm={3} md={3}>
-                <Card style={{backgroundColor:"orange"}}
+                <Card style={{backgroundColor:"##ffc87c",boxShadow:"0px 0px 10px #000000"}}
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
@@ -91,6 +92,7 @@ React.useEffect(() => {
         </Container>
             </div>
         </main>
+ 
     </div>
   )
 }
