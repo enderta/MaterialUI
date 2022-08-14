@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import { TextField,Button,Stack,CardContent  } from '@mui/material';
 
+
 const Img = styled('img')({
   margin: 'auto',
   display: 'block',
@@ -90,7 +91,7 @@ console.log(movie);
   }
   
   </Stack>
-
+  
     </div>
   )
 }
