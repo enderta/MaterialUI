@@ -28,7 +28,7 @@ React.useEffect(() => {
 
     
   return (
-    <div style={{margin:"0",backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}}>
+    <div >
     
         <CssBaseline />
         <AppBar position='relative' style={{backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}} >
@@ -40,7 +40,7 @@ React.useEffect(() => {
         </Toolbar>
 
         </AppBar>
-        <main  style={{backgroundColor:'rgb(131,58,180)',background:"linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(230,79,79,1) 26%, rgba(252,176,69,1) 100%)"}} >
+        <main >
             <Container maxWithd='sm' >
                 <Typography variant='h4' align='center' gutterBottom color='textPrimary'>
                     Movies You May Like
@@ -48,7 +48,7 @@ React.useEffect(() => {
                 <Typography variant='subtitle1' align='center' color='textSecondary' paragraph>
                Search for and add movies you like to watch later.
                 </Typography>
-                <Grid spacing={2}  justify='center' container>
+                <Grid spacing={4}  justify='center' container>
                     <Grid item>
                     <TextField  id="standard-basic" label="Search" value={search} onChange={handleChange} />
   <Button variant="contained" color="primary" onClick={getSearch}>
@@ -59,30 +59,25 @@ React.useEffect(() => {
                 <br/>
             </Container >
             <div>
-            <Container sx={{ py: 8 }} maxWidth="md">
+            <Container sx={{ py:8 }} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {movie.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card} xs={4} sm={3} md={3}>
                 <Card style={{backgroundColor:"orange"}}
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
-                    sx={{
-                      // 16:9
-                     
-                    }}
                     image={card.Poster}
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                     {card.Title}
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
+                      {card.Year}
                     </Typography>
                   </CardContent>
                   <CardActions>
