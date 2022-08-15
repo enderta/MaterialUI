@@ -30,9 +30,9 @@ const Search = () => {
                 <Grid spacing={4}  justify='center' container>
                     <Grid item>
                     <TextField  id="standard-basic" label="Search" value={search} onChange={handleChange} />
-  <Button variant="contained" color="primary" onClick={getSearch}>
+  {/* <Button variant="contained" color="primary" onClick={getSearch}>
     Search
-  </Button>
+  </Button> */}
                     </Grid >
                 </Grid>
                 </Container>
