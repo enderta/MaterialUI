@@ -42,21 +42,21 @@ const WB = () => {
         
         },[])
         console.log(data)
-        
-        const options = {
-           // Africa
-            colorAxis: { colors: ["#00853f", "black", "#e31b23"] },
-            backgroundColor: "yellow",
-            datalessRegionColor: "black",
-            defaultColor: "red",
-          };
+            
+            const options = {
+            // Africa
+                colorAxis: { colors: ["#00853f", "black", "#e31b23"] },
+                backgroundColor: "yellow",
+                datalessRegionColor: "black",
+                defaultColor: "black",
+            };
           
   return (
     <div>
       <Chart
      chartType="GeoChart"
       width="100%"
-      height="75%"
+      height="50%"
       data={data}
       options={options}
     />
