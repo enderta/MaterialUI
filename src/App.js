@@ -1,12 +1,14 @@
 import React from 'react'
-import Album from './Components/album/Album'
+import NavBar from './Components/PlaceToStay/NavBar'
+//import './App.css'
+import Search from './Components/album/Search.Jsx'
 import Country from './Components/Tables/Country'
-import './App.css'
+import WB from './Components/Tables/WB'
 
 const App = () => {
   return (
     <div>
-    <Country />
+    <WB /> 
     </div>
   )
 }
