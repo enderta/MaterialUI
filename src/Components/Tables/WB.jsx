@@ -21,6 +21,17 @@ const WB = () => {
           let d=[];
           c.push(['Country', 'Population']);
           result[1].forEach(element => {
+            if(element.country.value==="Turkiye")
+            {
+                element.country.value="Turkey";
+            }
+            else if(element.country.value==="Russian Federation"){
+                element.country.value="Russia";
+            }
+            else if(element.country.value==="Iran, Islamic Rep.")
+            {
+                element.country.value="Iran";
+            }
             c.push([element.country.value, element.value]);
           });
           setData(c);
@@ -31,13 +42,13 @@ const WB = () => {
         
         },[])
         console.log(data)
+        
         const options = {
            // Africa
             colorAxis: { colors: ["#00853f", "black", "#e31b23"] },
             backgroundColor: "yellow",
             datalessRegionColor: "black",
-            defaultColor: "#f5f5f5",
-            
+            defaultColor: "red",
           };
           
   return (
