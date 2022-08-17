@@ -4,11 +4,12 @@ import NavBar from './Components/PlaceToStay/NavBar'
 import Search from './Components/album/Search.Jsx'
 import Country from './Components/Tables/Country'
 import Infilation from './Components/Tables/Infilation'
+import WB from './Components/Tables/WB'
 
 const App = () => {
   return (
     <div>
-    <Infilation />
+    <WB />
     </div>
   )
 }

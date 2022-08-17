@@ -3,6 +3,7 @@ import React from 'react'
 
 const Search = () => {
     const [search, setSearch] = React.useState('');
+   
 
     const handleChange = (event) => {
         setSearch(event.target.value);
