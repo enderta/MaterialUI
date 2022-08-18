@@ -6,11 +6,12 @@ import Country from './Components/Tables/Country'
 import Infilation from './Components/Tables/Infilation'
 import WB from './Components/Tables/WB'
 import Slider from './Components/album/Slider'
+import Consumers from './Components/Tables/Consumers'
 
 const App = () => {
   return (
     <div>
-    <Slider />
+    <Consumers />
     </div>
   )
 }
