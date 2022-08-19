@@ -1,12 +1,14 @@
 import React from 'react'
 import NavBar from './Components/PlaceToStay/NavBar'
-import './App.css'
+
 import ImageLister from './Components/Tables/ImageLister'
+import Products from './Components/Selo/Products'
+import Movie from './Components/movie/Movie'  
 
 const App = () => {
   return (
     <div>
-   <ImageLister />
+  <Products />
     </div>
   )
 }
