@@ -45,10 +45,11 @@ const styles = {
     <br/>
     <br/>
     <br/>
-      
+    <br/>
+ 
     </div>
     <div>
-      <TextField id="search" label="Ara" onChange={handleSearch} style={{marginTop: "5px"}} />
+      <TextField id="search" label="Ara" onChange={handleSearch} style={{marginTop: "10px"}} />
     </div>
     <div >
       
@@ -69,7 +70,7 @@ const styles = {
               gutterBottom
               
             >
-              Maraş Baharat
+              Aksoy Baharat
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary">
               Something short and leading about the collection below—its contents,
@@ -119,8 +120,7 @@ const styles = {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
+                    
                   </CardActions>
                 </Card>
               </Grid>
