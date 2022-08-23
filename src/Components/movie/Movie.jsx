@@ -15,7 +15,7 @@ const Img = styled('img')({
 });
 
 const Movie = () => {
-  const [search, setSearch] = React.useState('');
+  const [search, setSearch] = React.useState('batman');
   const [movie, setMovie] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
