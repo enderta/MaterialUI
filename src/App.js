@@ -1,12 +1,15 @@
 import React from 'react'
-import id from './Fetch2/fetch.js'
+import './App.css'
+
 
 const App = () => {
- console.log(id)
+
   return (
-    <div>
-      
-    </div>
+ <>
+  <header className='border-b font-bold p-3'>
+  hello world
+  </header>
+ </>
   )
 }
 
