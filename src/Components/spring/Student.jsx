@@ -11,9 +11,22 @@ const Student = () => {
 
 
    
-    const handleDelete=(id)=>{
+    const handleDelete = (id) => {
+      fetch(`http://localhost:4000/student/${id}`,{
+        method:'DELETE',
+        headers:{
+          'Content-Type':'application/json'
+        }
+      })
+      .then(res=>res.json())
+      .then(data=>{
         setStudents(students.filter(student=>student.id!==id))
+      }).catch(err=>console.log(err))
     }
+
+
+
+    
 
     const handleClick=(e)=>{
         e.preventDefault()
@@ -39,10 +52,12 @@ const Student = () => {
       },[])
       const handleSearch=(e)=>{
         setSearch(e.target.value)
-        const filtered=students.filter(student=>student.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        const filtered=students.filter(student=>student.name.toLowerCase().includes(e.target.value.toLowerCase())||student.address.toLowerCase().includes(e.target.value.toLowerCase()))
         setFilter(filtered)
       }
-        
+      
+     //delete student
+    
     console.log(students)
   return (
     <div>
