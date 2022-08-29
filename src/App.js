@@ -1,15 +1,16 @@
 import React from 'react'
 import './App.css'
+import Appbar from './Components/spring/Appbar'
+import Student from './Components/spring/Student'
 
 
 const App = () => {
 
   return (
- <>
-  <header className='border-b font-bold p-3'>
-  hello world
-  </header>
- </>
+ <div className="App">
+  <Appbar />
+  <Student />
+ </div>
   )
 }
 
