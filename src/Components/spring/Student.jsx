@@ -61,8 +61,7 @@ const Student = () => {
         setFilter(filtered)
       }
       
-     //delete student
-     
+  
     
   
     
