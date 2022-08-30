@@ -91,7 +91,6 @@ const Student = () => {
             <TableCell>Name</TableCell>
             <TableCell align="right">Address</TableCell>
             <TableCell align="right">Delete</TableCell>
-            
           </TableRow>
         </TableHead>
         <TableBody>
