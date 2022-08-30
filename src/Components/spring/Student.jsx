@@ -1,7 +1,11 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
-import {Container,Paper,TextField,Button} from '@mui/material'
+import {Container,Paper,TextField,Button,Box,TableContainer,TableCell,TableRow,Table,TableBody,TableHead,} from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete';
 
+
+
+import Appbar from './Appbar'
 const Student = () => {
     const[name,setName]=useState('')
     const[address,setAddress]=useState('')
@@ -30,7 +34,7 @@ const Student = () => {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const student={name,address}
+        let student={name,address}
         console.log(student)
         fetch("http://localhost:4000/student/add",{
           method:"POST",
@@ -40,6 +44,7 @@ const Student = () => {
       }).then(()=>{
         console.log("New Student added")
       })
+      student={name:'',address:''}
     }
     useEffect(()=>{
         fetch("http://localhost:4000/student")
@@ -57,16 +62,22 @@ const Student = () => {
       }
       
      //delete student
+     
+    
+  
     
     console.log(students)
   return (
     <div>
+  <Box header>
+  <Appbar s={search} on={handleSearch}/>
+  </Box>
+  <br />
+  <br />
+  <br />
+  <div>
         <Container>
-        <Paper>
-        <form>
-        <TextField label="search" value={search} onChange={handleSearch}/>
-        </form>
-        </Paper>
+    
                     <Paper>
             <form>
             <TextField label="Name" value={name} onChange={(e)=>setName(e.target.value)}/>
@@ -74,18 +85,35 @@ const Student = () => {
             <Button onClick={handleClick}>Add</Button>
             </form>
             </Paper>
-            <Paper>
-            <ul>
-                {filter.map(student=>(
-                    <li key={student.id}>
-                        {student.name} - {student.address}
-                        <Button onClick={()=>handleDelete(student.id)}>Delete</Button>
-                    </li>
-                ))}
-            </ul>
-            </Paper>
+            <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Address</TableCell>
+            <TableCell align="right">Delete</TableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {filter.map((student) => (
+            <TableRow
+              
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {student.name}
+              </TableCell>
+             
+              <TableCell align="right">{student.address}</TableCell>
+              <TableCell align="right"><Button color='error' variant="outlined" startIcon={<DeleteIcon />} onClick={()=>handleDelete(student.id)}>Delete</Button></TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </Container>
-
+</div>
     </div>
   )
 }
