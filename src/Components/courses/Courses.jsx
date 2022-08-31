@@ -11,11 +11,12 @@ const Courses = () => {
     const [course,setCourse] = useState([]);
     const [search,setSearch] = useState('');
     const [filter,setFilter] = useState([]);
-    const [firstName,setFirstName] = useState('');
-    const [lastName,setLastName] = useState('');
+    const [first_name,setFirstName] = useState('');
+    const [last_name,setLastName] = useState('');
     const[maths,setMaths] = useState(0);
     const[english,setEnglish] = useState(0);
     const[science,setScience] = useState(0);
+    const [id,setId] = useState(0);
   
     useEffect(()=>{
         fetch("http://localhost:4000/courses")
@@ -45,20 +46,37 @@ const Courses = () => {
         }).catch(err=>console.log(err))
     }
     const handleClick=(e)=>{
-        e.preventDefault()
-        let course={firstName,lastName,maths,english,science}
-        console.log(course)
-        fetch("http://localhost:4000/courses/",{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(course)
-                
-            }).then(()=>{
-                console.log("New Course added")
-            }).catch(err=>console.log(err))
-            course={first_name:'',last_name:'',maths:0,english:0,science:0,id:course.length+1}
+        setFirstName(e.target.value)
+        setLastName(e.target.value)
+        setMaths(e.target.value)
+        setEnglish(e.target.value)
+        setScience(e.target.value)
+
+    }
+    const createUser = (e) => {
+        e.preventDefault();
+        const newUser = {
+            id:id,
+            first_name:first_name,
+            last_name:last_name,
+            maths:maths,
+            english:english,
+            science:science
         }
-    
+        fetch('http://localhost:4000/courses',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(newUser)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            setCourse([...course,data])
+           
+        }).catch(err=>console.log(err))
+    }
+
 
 
 
@@ -112,9 +130,10 @@ const Courses = () => {
     
         <Paper elevation={3}>
         <h1>Add New Course</h1>
-            <form onSubmit={handleClick}>
-                <TextField label="First Name" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
-                <TextField label="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+            <form onSubmit={createUser}>
+                <TextField label='ID' value={id} onChange={(e)=>setId(e.target.value)} />
+                <TextField label="First Name" value={first_name} onChange={(e)=>setFirstName(e.target.value)}/>
+                <TextField label="Last Name" value={last_name} onChange={(e)=>setLastName(e.target.value)}/>
                 <TextField label="Maths" value={maths} onChange={(e)=>setMaths(e.target.value)}/>
                 <TextField label="English" value={english} onChange={(e)=>setEnglish(e.target.value)}/>
                 <TextField label="Science" value={science} onChange={(e)=>setScience(e.target.value)}/>
