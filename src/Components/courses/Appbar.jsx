@@ -4,6 +4,7 @@ import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -71,7 +72,7 @@ const Appbar = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             textAlign='center' >
-            Spring Boot FullStack App
+           Students Course Analyisis
           
           
           </Typography>

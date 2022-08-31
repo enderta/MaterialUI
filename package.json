@@ -26,11 +26,12 @@
     "react-image-viewer-dv": "^1.0.2",
     "react-photo-album": "^1.16.1",
     "react-scripts": "5.0.1",
+    "recharts": "^2.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build:css":"postcss src/index.css -o src/tailwindcss.css",
-    "watch:css":"postcss src/index.css -o src/tailwindcss.css -w",
+    "build:css": "postcss src/index.css -o src/tailwindcss.css",
+    "watch:css": "postcss src/index.css -o src/tailwindcss.css -w",
     "start": "npm run build:css && react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",

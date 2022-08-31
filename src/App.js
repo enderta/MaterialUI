@@ -1,15 +1,12 @@
 import React from 'react'
 import './App.css'
-import Appbar from './Components/spring/Appbar'
-import Student from './Components/spring/Student'
-
-
+import Courses from './Components/courses/Courses'
 const App = () => {
 
   return (
  <div className="App">
  
-  <Student />
+  <Courses />
  </div>
   )
 }
