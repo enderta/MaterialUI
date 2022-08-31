@@ -16,8 +16,7 @@ const Courses = () => {
     const[maths,setMaths] = useState(0);
     const[english,setEnglish] = useState(0);
     const[science,setScience] = useState(0);
-    const[id,setId] = useState(course.length+1);
-
+  
     useEffect(()=>{
         fetch("http://localhost:4000/courses")
         .then(res=>res.json())
@@ -47,7 +46,7 @@ const Courses = () => {
     }
     const handleClick=(e)=>{
         e.preventDefault()
-        let course={firstName,lastName,maths,english,science,id}
+        let course={firstName,lastName,maths,english,science}
         console.log(course)
         fetch("http://localhost:4000/courses/",{
             method:"POST",
@@ -57,7 +56,7 @@ const Courses = () => {
             }).then(()=>{
                 console.log("New Course added")
             }).catch(err=>console.log(err))
-            course={firstName:'',lastName:'',maths:0,english:0,science:0}
+            course={first_name:'',last_name:'',maths:0,english:0,science:0,id:course.length+1}
         }
     
 
