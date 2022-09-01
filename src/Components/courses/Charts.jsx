@@ -10,9 +10,10 @@ const Charts = (props) => {
   return (
     <div>
  <BarChart
-          width={500}
+          width={1200}
           height={300}
           data={props.data}
+          fill="#82ca9d"
           margin={{
             top: 5,
             right: 30,
@@ -20,12 +21,12 @@ const Charts = (props) => {
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.1} style={{background:"red"}} />
           <XAxis dataKey="first_name" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="maths" fill="#8884d8" />
+          <Bar dataKey="maths" fill="lightGray" />
           <Bar dataKey="english" fill="#82ca9d" />
           <Bar dataKey="science" fill="#ffc658" />
         </BarChart>

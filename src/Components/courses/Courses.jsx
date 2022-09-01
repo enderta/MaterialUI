@@ -1,9 +1,10 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
-import {Container,Paper,TextField,Button,Box,TableContainer,TableCell,TableRow,Table,TableBody,TableHead,} from '@mui/material'
+import {Container,Typography,Button,Box,TableContainer,TableCell,TableRow,Table,TableBody,TableHead,} from '@mui/material'
 import Appbar from './Appbar'
 import Charts from './Charts'
 import DeleteIcon from '@mui/icons-material/Delete';
+import CreateUser from './CreateUser'
 
 
 
@@ -45,14 +46,7 @@ const Courses = () => {
             setCourse(course.filter(course=>course.id!==id))
         }).catch(err=>console.log(err))
     }
-    const handleClick=(e)=>{
-        setFirstName(e.target.value)
-        setLastName(e.target.value)
-        setMaths(e.target.value)
-        setEnglish(e.target.value)
-        setScience(e.target.value)
-
-    }
+   
     const createUser = (e) => {
         e.preventDefault();
         const newUser = {
@@ -126,31 +120,22 @@ const Courses = () => {
     <Box>
     <br/>
     <br/>
-    <Container>
     
-        <Paper elevation={3}>
-        <h1>Add New Course</h1>
-            <form onSubmit={createUser}>
-                <TextField label='ID' value={id} onChange={(e)=>setId(e.target.value)} />
-                <TextField label="First Name" value={first_name} onChange={(e)=>setFirstName(e.target.value)}/>
-                <TextField label="Last Name" value={last_name} onChange={(e)=>setLastName(e.target.value)}/>
-                <TextField label="Maths" value={maths} onChange={(e)=>setMaths(e.target.value)}/>
-                <TextField label="English" value={english} onChange={(e)=>setEnglish(e.target.value)}/>
-                <TextField label="Science" value={science} onChange={(e)=>setScience(e.target.value)}/>
-                <Button type="submit">Add</Button>
-            </form>
-
-        </Paper>
-    </Container>
     </Box>
     <Box>
     <Container>
-    <h1>Charts</h1>
+   <Typography variant={'h5'}>Chart</Typography>
+
     <Charts data={course}/>
     </Container>
     </Box>
-    
-
+    <br/>
+    <br/>
+    <Container>
+        <CreateUser s={setCourse} c={course}/>
+    </Container>
+<br/>
+<br/>
 
     </div>
   )

@@ -56,7 +56,7 @@ const Appbar = (props) => {
         <Box sx={{ flexGrow: 1 }}>
       <AppBar position="absolute">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -65,7 +65,7 @@ const Appbar = (props) => {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography
             variant="h6"
             noWrap
