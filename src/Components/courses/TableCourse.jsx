@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Container,Typography,Button,Box,TableContainer,TableCell,TableRow,Table,TableBody,TableHead,} from '@mui/material'
+import {Button,TableContainer,TableCell,TableRow,Table,TableBody,TableHead,} from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 const TableCourse = (props) => {
   return (
@@ -28,7 +28,7 @@ const TableCourse = (props) => {
                         <TableCell>{course.english}</TableCell>
                         <TableCell>{course.science}</TableCell>
                         <TableCell>
-                            <Button color='error' variant="outlined" startIcon={<DeleteIcon />} onClick={()=>props.on(course.id)}>Delete</Button>
+                            <Button color='error' variant="outlined" startIcon={<DeleteIcon />} onClick={()=>props(course.id)}>Delete</Button>
                         </TableCell>
                     </TableRow>
                 ))}

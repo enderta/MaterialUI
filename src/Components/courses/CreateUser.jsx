@@ -47,7 +47,7 @@ const CreateUser = (props) => {
 
         <form onSubmit={createUser}>
                <Table sx={{ minWidth: 650 }} >
-        <TableHead>
+        {/* <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
             <TableCell align="center">First Name</TableCell>
@@ -57,7 +57,7 @@ const CreateUser = (props) => {
             <TableCell align="center">Science</TableCell>
             <TableCell align="center">Action</TableCell>
           </TableRow>
-        </TableHead>
+        </TableHead> */}
         <TableBody>
           <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
