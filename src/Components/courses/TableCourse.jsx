@@ -28,7 +28,7 @@ const TableCourse = (props) => {
                         <TableCell>{course.english}</TableCell>
                         <TableCell>{course.science}</TableCell>
                         <TableCell>
-                            <Button color='error' variant="outlined" startIcon={<DeleteIcon />} onClick={()=>props(course.id)}>Delete</Button>
+                            <Button color='error' variant="outlined" startIcon={<DeleteIcon />} onClick={()=>props.on(course.id)}>Delete</Button>
                         </TableCell>
                     </TableRow>
                 ))}

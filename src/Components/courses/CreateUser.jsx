@@ -5,12 +5,12 @@ import {Typography,Paper,TextField,Button,TableContainer,TableCell,TableRow,Tabl
 import SendIcon from '@mui/icons-material/Send';
 
 const CreateUser = (props) => {
-    const [first_name,setFirstName] = useState('');
-    const [last_name,setLastName] = useState('');
-    const[maths,setMaths] = useState(0);
-    const[english,setEnglish] = useState(0);
-    const[science,setScience] = useState(0);
-    const [id,setId] = useState(0);
+    const [first_name,setFirstName] = useState(' ');
+    const [last_name,setLastName] = useState(' ');
+    const[maths,setMaths] = useState(' ');
+    const[english,setEnglish] = useState(' ');
+    const[science,setScience] = useState(' ');
+    const [id,setId] = useState(' ');
    
     const createUser = (e) => {
     let course=props.c
@@ -63,7 +63,7 @@ const CreateUser = (props) => {
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
           <TableCell component="th" scope="row">
-              <TextField id="outlined-basic" label="ID" variant="outlined" onChange={(e)=>setId(e.target.value)} />
+              <TextField id="outlined-basic" label="ID" variant="outlined" value={id} onChange={(e)=>setId(e.target.value)} />
             </TableCell>
            <TableCell align="center">
               <TextField id="outlined-basic" label="First Name" variant="outlined" value={first_name} onChange={(e)=>setFirstName(e.target.value)} />
