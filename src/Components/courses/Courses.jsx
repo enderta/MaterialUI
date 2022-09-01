@@ -1,10 +1,10 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
-import {Container,Typography,Button,Box,TableContainer,TableCell,TableRow,Table,TableBody,TableHead,} from '@mui/material'
+import {Container,Typography,Box} from '@mui/material'
 import Appbar from './Appbar'
 import Charts from './Charts'
-import DeleteIcon from '@mui/icons-material/Delete';
 import CreateUser from './CreateUser'
+import TableCourse from './TableCourse'
 
 
 
@@ -12,12 +12,7 @@ const Courses = () => {
     const [course,setCourse] = useState([]);
     const [search,setSearch] = useState('');
     const [filter,setFilter] = useState([]);
-    const [first_name,setFirstName] = useState('');
-    const [last_name,setLastName] = useState('');
-    const[maths,setMaths] = useState(0);
-    const[english,setEnglish] = useState(0);
-    const[science,setScience] = useState(0);
-    const [id,setId] = useState(0);
+   
   
     useEffect(()=>{
         fetch("http://localhost:4000/courses")
@@ -47,31 +42,7 @@ const Courses = () => {
         }).catch(err=>console.log(err))
     }
    
-    const createUser = (e) => {
-        e.preventDefault();
-        const newUser = {
-            id:id,
-            first_name:first_name,
-            last_name:last_name,
-            maths:maths,
-            english:english,
-            science:science
-        }
-        fetch('http://localhost:4000/courses',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(newUser)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            setCourse([...course,data])
-           
-        }).catch(err=>console.log(err))
-    }
-
-
+   
 
 
   return (
@@ -85,36 +56,7 @@ const Courses = () => {
   </Box>
    <Container>
    <Box>
-    <TableContainer>
-    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-                <TableRow>
-                <TableCell>Id</TableCell>
-                    <TableCell>First Name</TableCell>
-                    <TableCell>Last Name</TableCell>
-                    <TableCell>Maths</TableCell>
-                    <TableCell>English</TableCell>
-                    <TableCell>Science</TableCell>
-                    <TableCell>Action</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {filter.map(course=>(
-                    <TableRow key={course.id}>
-                        <TableCell>{course.id}</TableCell>
-                        <TableCell>{course.first_name}</TableCell>
-                        <TableCell>{course.last_name}</TableCell>
-                        <TableCell>{course.maths}</TableCell>
-                        <TableCell>{course.english}</TableCell>
-                        <TableCell>{course.science}</TableCell>
-                        <TableCell>
-                            <Button color='error' variant="outlined" startIcon={<DeleteIcon />} onClick={()=>handleDelete(course.id)}>Delete</Button>
-                        </TableCell>
-                    </TableRow>
-                ))}
-            </TableBody>
-        </Table>
-    </TableContainer>
+   <TableCourse d={filter} on={handleDelete}/>
     </Box>
    </Container>
     <Box>
